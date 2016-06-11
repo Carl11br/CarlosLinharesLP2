@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Math;
 
 namespace triangulo
 {
@@ -41,10 +40,10 @@ namespace triangulo
                     this._lado1 = value;
             }
         }
-        public int Id {get; set;}
+        public int id {get; set;}
         public int posx { get; set; }
         public int posy { get; set; }
-        public double Cor 
+        public double Cor
         {
             get { return _cor; }
             set { if (value >= 0 && value <= (Math.Pow(2, 24) - 1)) this._cor = value ;}
@@ -52,11 +51,11 @@ namespace triangulo
 
         public Triangulo(double l1, double l2, double l3)
         {
-            if (l1 > 0 && l1 > l2 + l3 )
+            if (l1 > 0 && l1 < l2 + l3 )
             {
-                if ( l2 > 0 && l2 > l1 + l3)
+                if ( l2 > 0 && l2 < l1 + l3)
                 {
-                    if (l3 > 0 && l3 > l1 + l2)
+                    if (l3 > 0 && l3 < l1 + l2)
                     {
                         _lado1 = l1;
                         _lado2 = l2;
@@ -64,7 +63,7 @@ namespace triangulo
                     }
                 }
             }
-        }
+        } 
         
         
     }
